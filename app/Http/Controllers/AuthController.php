@@ -21,31 +21,6 @@ class AuthController extends Controller
         'password' => 'required|string|confirmed'
     ];
 
-    public function register(Request $request)
-    {
-        $validator = Validator::make($request->all() , $this->rules);
-		 if ($validator->fails()) {
-            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
-        }else {
-
-                $user = new User([
-                                  'name' => $request->name,
-                                  'email' => $request->email,
-                                  'password' => bcrypt($request->password)
-                               ]);
-
-                $user->save();
-
-                return response()->json([
-                                         'success' => true,
-                                         'id' => $user->id,
-                                         'name' => $user->name,
-                                         'email' => $user->email,
-                                        ], 201);
-        } 
-        
-    }
-
     public function login(Request $request)
     {
 
