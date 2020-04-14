@@ -33,9 +33,8 @@ class RegisterController extends Controller
 
     protected function create(Request $request)
     {
-      return response()->json('dddddddddd');
 
-       /*$validator = Validator::make($request->all() , $this->rules);
+       $validator = Validator::make($request->all() , $this->rules);
 
         if($validator->fails()) {
             return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
@@ -55,7 +54,7 @@ class RegisterController extends Controller
                                   'name' => $user->name,
                                   'email' => $user->email,
                                 ], 201);   
-        }*/
+        }
  
     }
 }
